@@ -1,4 +1,4 @@
-'''The Collatz Sequence
+'''The Collatz Sequence with Input Validation
 Write a function named collatz() that has one parameter named number. If
 number is even, then collatz() should print number // 2 and return this value.
 If number is odd, then collatz() should print and return 3 * number + 1.
@@ -11,13 +11,16 @@ def collatz(number):
         print(outcome)
     elif number % 2 == 1:
         outcome = 3*number+1
-        print(outcome)
+        print(outcome)      
     return outcome
 
-while True:
-    math_magic = collatz(int(input('Enter a number ')))
-    if math_magic == 1:
-        break
-    else:
-        continue
+while True: 
+    try:
+        math_magic = collatz(int(input('Enter a number ')))
+        if math_magic == 1:
+            break
+        else:
+            continue
+    except ValueError:
+        print('Sorry, I dunno what that was. Try again?')
 
